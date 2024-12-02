@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>휘쌤의 독해력 챌린지</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f0f8ff;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+        }
+        h1 {
+            text-align: center;
+            color: #2e8b57;
+        }
+        .section {
+            display: none;
+        }
+        .active {
+            display: block;
+        }
+        .paragraph {
+            margin-bottom: 20px;
+        }
+        .question {
+            margin-top: 30px;
+            padding: 15px;
+            background-color: #fff;
+            border: 2px solid #2e8b57;
+            border-radius: 8px;
+        }
+        .options label {
+            display: block;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+        .next-btn, .back-btn {
+            margin-top: 10px;
+            padding: 8px 16px;
+            background-color: #2e8b57;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        .next-btn:hover, .back-btn:hover {
+            background-color: #276749;
+        }
+        .result {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        .nav-buttons {
+            margin-top: 20px;
+        }
+        /* 완료 섹션 스타일 */
+        #end {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>휘쌤의 독해력 챌린지</h1>
+        
+        <!-- 지문 섹션 -->
+        <div class="section active" id="passage">
+            <div class="paragraph">
+                <h2>지문</h2>
+                <p>겨울은 1년 중 가장 추운 계절이에요. 날씨가 추워지면 나뭇잎은 모두 떨어지고, 나무들은 마치 잠든 것처럼 보여요. 많은 동물들은 겨울 동안 따뜻하게 지내기 위해 몸을 숨기고, 사람들은 따뜻한 옷을 입고 겨울을 준비해요. 겨울이 되면 공기는 차가워지지만 하늘은 맑고 깨끗해요.</p>
+            </div>
+            <div class="paragraph">
+                <p>눈은 겨울을 특별하게 만들어 주는 요소 중 하나예요. 눈이 내리면 세상은 하얀 이불을 덮은 것처럼 변해요. 눈이 쌓인 길을 걸을 때는 신발 밑에서 '뽀드득' 소리가 나서 재미있죠. 아이들은 눈이 내리면 눈사람을 만들거나 눈싸움을 하며 즐거운 시간을 보내요. 눈썰매를 타고 언덕을 내려오는 것도 겨울의 재미 중 하나예요.</p>
+            </div>
+            <div class="paragraph">
+                <p>겨울에는 추운 날씨 때문에 동물들도 특별한 준비를 해요. 곰과 같은 몇몇 동물들은 겨울잠을 자요. 이것을 '동면'이라고 불러요. 동면을 하면 음식이 부족한 겨울 동안 에너지를 아낄 수 있어요. 다람쥐나 청설모 같은 동물들은 가을에 도토리나 열매를 모아 겨울 동안 먹을 음식을 준비해요.</p>
+            </div>
+            <div class="paragraph">
+                <p>겨울은 춥지만, 그 속에는 따뜻함도 숨어 있어요. 가족들이 함께 모여 뜨거운 코코아를 마시거나, 따뜻한 이불 속에서 이야기를 나누는 시간은 겨울만의 특별한 즐거움이에요. 또한, 겨울이 지나면 봄이 온다는 기대감도 겨울을 더욱 의미 있게 만들어 줍니다.</p>
+            </div>
+            <div class="paragraph">
+                <p>겨울은 그저 추운 계절이 아니라, 자연과 사람 모두가 서로를 돌보며 따뜻함을 나누는 시간이랍니다.</p>
+            </div>
+            <div class="nav-buttons">
+                <button class="next-btn" onclick="showSection('question1')">다음</button>
+            </div>
+        </div>
+        
+        <!-- 질문 1 -->
+        <div class="section" id="question1">
+            <div class="question">
+                <h3>문단 1: 겨울에 관한 설명으로 옳지 않은 것은 무엇인가요?</h3>
+                <div class="options">
+                    <label><input type="radio" name="q1" value="a"> 겨울에는 나뭇잎이 다시 돋아나요.</label>
+                    <label><input type="radio" name="q1" value="b"> 겨울에는 공기가 차갑지만 하늘이 맑아요.</label>
+                    <label><input type="radio" name="q1" value="c"> 동물들은 겨울 동안 몸을 숨겨 따뜻하게 지내요.</label>
+                    <label><input type="radio" name="q1" value="d"> 사람들은 겨울을 준비하며 따뜻한 옷을 입어요.</label>
+                </div>
+                <button class="next-btn" onclick="submitAnswer(1, 'a', 'question1')">다음</button>
+                <button class="back-btn" onclick="showSection('passage')">지문</button>
+                <div class="result" id="result1"></div>
+            </div>
+        </div>
+        
+        <!-- 질문 2 -->
+        <div class="section" id="question2">
+            <div class="question">
+                <h3>문단 2: 눈이 내리는 겨울의 특징으로 알맞지 않은 것은 무엇인가요?</h3>
+                <div class="options">
+                    <label><input type="radio" name="q2" value="a"> 눈이 내리면 세상이 하얗게 변해요.</label>
+                    <label><input type="radio" name="q2" value="b"> 눈이 쌓인 길을 걸을 때 신발 소리가 재미있어요.</label>
+                    <label><input type="radio" name="q2" value="c"> 아이들은 눈이 내리면 수영을 해요.</label>
+                    <label><input type="radio" name="q2" value="d"> 눈썰매를 타는 것은 겨울의 즐거움 중 하나예요.</label>
+                </div>
+                <button class="next-btn" onclick="submitAnswer(2, 'c', 'question2')">다음</button>
+                <button class="back-btn" onclick="showSection('passage')">지문</button>
+                <div class="result" id="result2"></div>
+            </div>
+        </div>
+        
+        <!-- 질문 3 -->
+        <div class="section" id="question3">
+            <div class="question">
+                <h3>문단 3: 겨울을 준비하는 동물들의 행동으로 옳지 않은 것은 무엇인가요?</h3>
+                <div class="options">
+                    <label><input type="radio" name="q3" value="a"> 곰은 겨울잠을 자요.</label>
+                    <label><input type="radio" name="q3" value="b"> 다람쥐는 가을에 도토리를 모아요.</label>
+                    <label><input type="radio" name="q3" value="c"> 청설모는 겨울 동안 활발히 사냥을 해요.</label>
+                    <label><input type="radio" name="q3" value="d"> 동면을 통해 에너지를 절약해요.</label>
+                </div>
+                <button class="next-btn" onclick="submitAnswer(3, 'c', 'question3')">다음</button>
+                <button class="back-btn" onclick="showSection('passage')">지문</button>
+                <div class="result" id="result3"></div>
+            </div>
+        </div>
+        
+        <!-- 질문 4 -->
+        <div class="section" id="question4">
+            <div class="question">
+                <h3>문단 4: 겨울의 따뜻함에 대한 설명으로 옳지 않은 것은 무엇인가요?</h3>
+                <div class="options">
+                    <label><input type="radio" name="q4" value="a"> 가족들이 함께 뜨거운 코코아를 마셔요.</label>
+                    <label><input type="radio" name="q4" value="b"> 겨울에는 항상 외로움을 느껴요.</label>
+                    <label><input type="radio" name="q4" value="c"> 따뜻한 이불 속에서 이야기를 나눠요.</label>
+                    <label><input type="radio" name="q4" value="d"> 봄이 올 것을 기대해요.</label>
+                </div>
+                <button class="next-btn" onclick="submitAnswer(4, 'b', 'question4')">다음</button>
+                <button class="back-btn" onclick="showSection('passage')">지문</button>
+                <div class="result" id="result4"></div>
+            </div>
+        </div>
+        
+        <!-- 질문 5 -->
+        <div class="section" id="question5">
+            <div class="question">
+                <h3>문단 5: 겨울에 대한 총체적인 설명으로 옳지 않은 것은 무엇인가요?</h3>
+                <div class="options">
+                    <label><input type="radio" name="q5" value="a"> 겨울은 단순히 추운 계절이에요.</label>
+                    <label><input type="radio" name="q5" value="b"> 자연과 사람이 서로를 돌보는 계절이에요.</label>
+                    <label><input type="radio" name="q5" value="c"> 겨울 동안 모든 생명체가 휴식을 취해요.</label>
+                    <label><input type="radio" name="q5" value="d"> 겨울은 따뜻함을 나누는 시간이기도 해요.</label>
+                </div>
+                <button class="next-btn" onclick="submitAnswer(5, 'c', 'question5')">완료</button>
+                <button class="back-btn" onclick="showSection('passage')">지문</button>
+                <div class="result" id="result5"></div>
+            </div>
+        </div>
+        
+        <!-- 완료 섹션 -->
+        <div class="section" id="end">
+            <h2>퀴즈가 완료되었습니다!</h2>
+            <p id="score"></p>
+            <button class="back-btn" onclick="showSection('passage')">지문으로 돌아가기</button>
+        </div>
+    </div>
+    
+    <script>
+        // 현재 보여지고 있는 섹션을 추적
+        let currentSection = 'passage';
+
+        // 총 문제 수 및 맞춘 문제 수
+        const totalQuestions = 5;
+        let correctAnswers = 0;
+
+        // 모든 섹션을 가져옴
+        const sections = document.querySelectorAll('.section');
+
+        // 특정 섹션을 보여주는 함수
+        function showSection(sectionId) {
+            sections.forEach(section => {
+                if (section.id === sectionId) {
+                    section.classList.add('active');
+                } else {
+                    section.classList.remove('active');
+                }
+            });
+            currentSection = sectionId;
+        }
+
+        // 답안 제출 및 채점 함수
+        function submitAnswer(questionNumber, correctAnswer, currentQuestionId) {
+            const options = document.getElementsByName('q' + questionNumber);
+            let selected = '';
+            for (const option of options) {
+                if (option.checked) {
+                    selected = option.value;
+                    break;
+                }
+            }
+            const resultDiv = document.getElementById('result' + questionNumber);
+            if (selected === '') {
+                resultDiv.style.color = 'red';
+                resultDiv.textContent = '답을 선택해주세요.';
+                return;
+            }
+            if (selected === correctAnswer) {
+                resultDiv.style.color = 'green';
+                resultDiv.textContent = '정답입니다!';
+                correctAnswers++;
+            } else {
+                resultDiv.style.color = 'red';
+                resultDiv.textContent = '틀렸습니다. 정답은 ' + correctAnswer.toUpperCase() + '입니다.';
+            }
+
+            // 자동으로 다음 섹션으로 이동
+            if (currentQuestionId === 'question5') {
+                // 마지막 질문인 경우 완료 섹션으로 이동
+                showSection('end');
+                document.getElementById('score').textContent = `총 ${totalQuestions}문제 중 ${correctAnswers}문제를 맞추셨습니다.`;
+            } else {
+                // 다음 질문으로 이동
+                const nextQuestionNumber = questionNumber + 1;
+                showSection('question' + nextQuestionNumber);
+            }
+        }
+    </script>
+</body>
+</html>
